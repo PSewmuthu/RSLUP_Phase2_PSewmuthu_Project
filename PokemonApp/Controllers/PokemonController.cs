@@ -1,12 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using PokemonReview.Data;
-using PokemonReview.Dto;
-using PokemonReview.Interfaces;
-using PokemonReview.Models;
-using PokemonReview.Repository;
+using PokemonApp.Dtos;
+using PokemonApp.Interfaces;
+using PokemonApp.Models;
 
-namespace PokemonReview.Controllers
+namespace PokemonApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

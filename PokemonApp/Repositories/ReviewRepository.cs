@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using PokemonReview.Data;
-using PokemonReview.Interfaces;
-using PokemonReview.Models;
+using PokemonApp.Data;
+using PokemonApp.Interfaces;
+using PokemonApp.Models;
 
-namespace PokemonReview.Repository
+namespace PokemonApp.Repositories
 {
     public class ReviewRepository : IReviewRepository
     {

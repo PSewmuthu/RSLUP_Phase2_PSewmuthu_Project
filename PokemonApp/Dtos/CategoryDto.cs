@@ -1,4 +1,4 @@
-﻿namespace PokemonReview.Dto
+﻿namespace PokemonApp.Dtos
 {
     public class CategoryDto
     {
