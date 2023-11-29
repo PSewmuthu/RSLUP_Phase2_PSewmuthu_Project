@@ -20,7 +20,7 @@ namespace PokemonReview.Data
         public DbSet<PokemonCategory> PokemonCategories { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Reviewer> Reviewers { get; set; }
-        public DbSet<Order> Order { get; set; }
+        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PokemonCategory>()
