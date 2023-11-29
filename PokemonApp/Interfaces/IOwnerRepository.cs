@@ -1,7 +1,6 @@
-﻿using PokemonReview.Models;
-using System.Collections;
+﻿using PokemonApp.Models;
 
-namespace PokemonReview.Interfaces
+namespace PokemonApp.Interfaces
 {
     public interface IOwnerRepository
     {

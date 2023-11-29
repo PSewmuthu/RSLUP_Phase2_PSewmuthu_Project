@@ -1,7 +1,6 @@
 ﻿using PokemonApp.Interfaces;
 using PokemonApp.Models;
-using PokemonReview.Data;
-using PokemonReview.Models;
+using PokemonApp.Data;
 
 namespace PokemonApp.Repositories
 {

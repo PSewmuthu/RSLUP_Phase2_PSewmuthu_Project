@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using PokemonApp.Dtos;
 using PokemonApp.Models;
-using PokemonReview.Dto;
-using PokemonReview.Models;
 
-namespace PokemonReview.Helper
+namespace PokemonApp.Helper
 {
     public class MappingProfiles : Profile
     {

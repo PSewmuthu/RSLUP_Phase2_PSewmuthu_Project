@@ -1,6 +1,4 @@
-﻿using PokemonReview.Models;
-
-namespace PokemonApp.Models
+﻿namespace PokemonApp.Models
 {
     public class Order
     {
