@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PokemonApp.Dtos;
 using PokemonApp.Interfaces;
 using PokemonApp.Models;
+using System.Security.Cryptography;
 
 namespace PokemonApp.Controllers
 {
@@ -22,7 +23,7 @@ namespace PokemonApp.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
         public IActionResult GetUsers()
         {
-            var users = _mapper.Map<List<UserDto>>(_userRepository.GetUsers());
+            var users = _mapper.Map<List<RegisterDto>>(_userRepository.GetUsers());
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -38,7 +39,7 @@ namespace PokemonApp.Controllers
             if (!_userRepository.UserExists(userId))
                 return NotFound();
 
-            var user = _mapper.Map<UserDto>(_userRepository.GetUser(userId));
+            var user = _mapper.Map<RegisterDto>(_userRepository.GetUser(userId));
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -67,7 +68,17 @@ namespace PokemonApp.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var userMap = _mapper.Map<User>(userCreate);
+            CreatePasswordHash(userCreate.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            RegisterDto newUser = new RegisterDto();
+
+            newUser.FirstName = userCreate.FirstName;
+            newUser.LastName = userCreate.LastName;
+            newUser.Email = userCreate.Email;
+            newUser.PasswordHash = passwordHash;
+            newUser.PasswordSalt = passwordSalt;
+
+            var userMap = _mapper.Map<User>(newUser);
 
             if (!_userRepository.CreateUser(userMap))
             {
@@ -96,7 +107,18 @@ namespace PokemonApp.Controllers
             if (!ModelState.IsValid)
                 return BadRequest();
 
-            var userMap = _mapper.Map<User>(updatedUser);
+            CreatePasswordHash(updatedUser.Password, out byte[] passwordHash, out byte[] passwordSalt);
+
+            RegisterDto editUser = new RegisterDto();
+
+            editUser.Id = updatedUser.Id;
+            editUser.FirstName = updatedUser.FirstName;
+            editUser.LastName = updatedUser.LastName;
+            editUser.Email = updatedUser.Email;
+            editUser.PasswordHash = passwordHash;
+            editUser.PasswordSalt = passwordSalt;
+
+            var userMap = _mapper.Map<User>(editUser);
 
             if (!_userRepository.UpdateUser(userMap))
             {
@@ -105,6 +127,15 @@ namespace PokemonApp.Controllers
             }
 
             return NoContent();
+        }
+
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
         }
 
         [HttpDelete("{userId}")]
