@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using PokemonApp.Dto;
+using PokemonApp.Dtos;
 using PokemonApp.Interfaces;
 using PokemonApp.Models;
 
