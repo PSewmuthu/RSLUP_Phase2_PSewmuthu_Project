@@ -37,21 +37,21 @@ namespace PokemonApp.Repositories
             return _context.Users.ToList();
         }
 
+        public bool UserExists(int userId)
+        {
+            return _context.Users.Any(u => u.Id == userId);
+        }
+
         public bool Save()
         {
             var saved = _context.SaveChanges();
             return saved > 0 ? true : false;
         }
 
-        public bool UpdateUser(User user)
+        public bool UpdateUset(User user)
         {
             _context.Update(user);
             return Save();
-        }
-
-        public bool UserExists(int userId)
-        {
-            return _context.Users.Any(u => u.Id == userId);
         }
     }
 }
