@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using PokemonReview.Data;
-using PokemonReview;
-using PokemonReview.Interfaces;
-using PokemonReview.Repository;
+using PokemonApp.Data;
+using PokemonApp.Interfaces;
+using PokemonApp.Repositories;
 using AutoMapper;
 using System.Text.Json.Serialization;
 
