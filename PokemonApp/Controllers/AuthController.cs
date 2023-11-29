@@ -118,6 +118,11 @@ namespace PokemonApp.Controllers
             }
         }
 
+        private string CreateRandomToken()
+        {
+            return Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
+        }
+
         private string CreateToken(User user)
         {
             List<Claim> claims = new List<Claim>
@@ -139,11 +144,6 @@ namespace PokemonApp.Controllers
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
             return jwt;
-        }
-
-        private string CreateRandomToken()
-        {
-            return Convert.ToHexString(RandomNumberGenerator.GetBytes(64));
         }
     }
 }
