@@ -48,7 +48,7 @@ namespace PokemonApp.Repositories
             return saved > 0 ? true : false;
         }
 
-        public bool UpdateUset(User user)
+        public bool UpdateUser(User user)
         {
             _context.Update(user);
             return Save();
