@@ -76,7 +76,7 @@ namespace PokemonApp.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult UpdateOrder(int orderId, [FromBody] OwnerDto updatedOrder)
+        public IActionResult UpdateOrder(int orderId, [FromBody] OrderDto updatedOrder)
         {
             if (updatedOrder == null)
                 return BadRequest(ModelState);
