@@ -19,6 +19,7 @@ namespace PokemonApp.Data
         public DbSet<Reviewer> Reviewers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ResetPasswordRequest> ResetPasswordRequests { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PokemonCategory>()
