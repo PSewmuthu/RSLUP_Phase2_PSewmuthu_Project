@@ -4,6 +4,7 @@ namespace PokemonApp.Models
 {
     public class ResetPasswordRequest
     {
+        public int Id { get; set; }
         [Required]
         public string Token { get; set; } = string.Empty;
         [Required, MinLength(6, ErrorMessage = "Please enter at least 6 characters, dude!")]
