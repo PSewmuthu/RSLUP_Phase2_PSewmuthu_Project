@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using PokemonApp.Dtos;
+using PokemonApp.Models;
 using PokemonReview.Dto;
 using PokemonReview.Models;
 
@@ -20,6 +22,8 @@ namespace PokemonReview.Helper
             CreateMap<ReviewDto, Review>();
             CreateMap<Reviewer, ReviewerDto>();
             CreateMap<ReviewerDto, Reviewer>();
+            CreateMap<Order, OrderDto>();
+            CreateMap<OrderDto, Order>();
         }
     }
 }
