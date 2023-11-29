@@ -42,6 +42,11 @@ namespace PokemonApp.Repositories
             return _context.Users.Any(u => u.Id == userId);
         }
 
+        public User GetUserByEmail(string userEmail)
+        {
+            return _context.Users.Where(u => u.Email == userEmail).FirstOrDefault();
+        }
+
         public bool Save()
         {
             var saved = _context.SaveChanges();
