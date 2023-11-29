@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PokemonApp.Models;
 using PokemonReview.Models;
 using System.Collections.Generic;
 using System.Reflection.Emit;
@@ -19,6 +20,7 @@ namespace PokemonReview.Data
         public DbSet<PokemonCategory> PokemonCategories { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Reviewer> Reviewers { get; set; }
+        public DbSet<Order> Order { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PokemonCategory>()
