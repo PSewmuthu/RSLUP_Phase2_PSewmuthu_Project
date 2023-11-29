@@ -27,9 +27,9 @@ namespace PokemonApp.Repositories
             return Save();
         }
 
-        public User GetUser(int id)
+        public User GetUser(int userId)
         {
-            return _context.Users.Where(u => u.Id == id).FirstOrDefault();
+            return _context.Users.Where(u => u.Id == userId).FirstOrDefault();
         }
 
         public ICollection<User> GetUsers()
